@@ -1,5 +1,5 @@
 
-const Listing = require("../models/Listing");
+const Listing = require("../models/listing");
 const axios = require("axios");
 
 // ========================================
