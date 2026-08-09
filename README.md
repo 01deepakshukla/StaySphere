@@ -9,7 +9,7 @@ StaySphere is a full-stack accommodation listing web application where users can
 - Property image upload
 - Location-based listings
 - Interactive Mapbox maps
-- Reviews and ratings
+- Reviews
 - Flash messages and error handling
 - MongoDB database
 - Responsive web interface
