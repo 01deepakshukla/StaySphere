@@ -1,0 +1,205 @@
+<% layout("/layouts/boilerplate") %>
+
+<!-- ==================== FILTERS ==================== -->
+
+<div id="filters">
+
+    <div class="filter">
+        <div><i class="fa-solid fa-fire"></i></div>
+        <p>Trending</p>
+    </div>
+
+    <div class="filter">
+        <div><i class="fa-solid fa-bed"></i></div>
+        <p>Rooms</p>
+    </div>
+
+    <div class="filter">
+        <div><i class="fa-solid fa-mountain-city"></i></div>
+        <p>Iconic Cities</p>
+    </div>
+
+    <div class="filter">
+        <div><i class="fa-solid fa-mountain"></i></div>
+        <p>Mountains</p>
+    </div>
+
+    <div class="filter">
+        <div><i class="fa-solid fa-chess-rook"></i></div>
+        <p>Castles</p>
+    </div>
+
+    <div class="filter">
+        <div><i class="fa-solid fa-person-swimming"></i></div>
+        <p>Amazing Pools</p>
+    </div>
+
+    <div class="filter">
+        <div><i class="fa-solid fa-campground"></i></div>
+        <p>Camping</p>
+    </div>
+
+    <div class="filter">
+        <div><i class="fa-solid fa-cow"></i></div>
+        <p>Farms</p>
+    </div>
+
+    <div class="filter">
+        <div><i class="fa-regular fa-snowflake"></i></div>
+        <p>Arctic</p>
+    </div>
+
+</div>
+
+
+<!-- ==================== TAX SWITCH ==================== -->
+
+<div class="tax-toggle">
+
+    <div class="form-check-reverse form-switch">
+
+        <input
+            class="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckDefault"
+        >
+
+        <label
+            class="form-check-label"
+            for="flexSwitchCheckDefault"
+        >
+            Display total after taxes
+        </label>
+
+    </div>
+
+</div>
+
+
+<!-- ==================== LISTINGS ==================== -->
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+
+    <% for (let listing of allListings) { %>
+
+        <div class="col mb-4">
+
+            <a
+                href="/listings/<%= listing._id %>"
+                class="listing-link"
+            >
+
+                <div class="card listing-card">
+
+                    <!-- Listing Image -->
+
+                    <img
+                        src="<%= listing.image.url %>"
+                        class="card-img-top"
+                        alt="listing_image"
+                    >
+
+                    <!-- Image Overlay -->
+
+                    <div class="card-img-overlay"></div>
+
+
+                    <!-- Card Body -->
+
+                    <div class="card-body">
+
+                        <p class="card-text">
+
+                            <!-- Title -->
+
+                            <b>
+                                <%= listing.title %>
+                            </b>
+
+                            <br>
+
+
+                            <!-- Price -->
+
+                            ₹<span
+                                class="price-value"
+                                data-original-price="<%= listing.price %>"
+                            >
+                                <%= listing.price.toLocaleString("en-IN") %>
+                            </span>/night
+
+                            <br>
+
+
+                            <!-- Location -->
+
+                            <%= listing.location %>,
+                            <%= listing.country %>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    <% } %>
+
+</div>
+
+
+<!-- ==================== TAX SWITCH JAVASCRIPT ==================== -->
+
+<script>
+
+    const taxSwitch =
+        document.querySelector("#flexSwitchCheckDefault");
+
+
+    if (taxSwitch) {
+
+        taxSwitch.addEventListener("change", () => {
+
+            const priceElements =
+                document.querySelectorAll(".price-value");
+
+
+            priceElements.forEach((priceElement) => {
+
+                const originalPrice =
+                    parseFloat(
+                        priceElement.dataset.originalPrice
+                    );
+
+
+                if (taxSwitch.checked) {
+
+                    // 18% Tax
+
+                    const taxPrice =
+                        originalPrice * 1.18;
+
+
+                    priceElement.innerText =
+                        taxPrice.toLocaleString("en-IN");
+
+                } else {
+
+                    // Original Price
+
+                    priceElement.innerText =
+                        originalPrice.toLocaleString("en-IN");
+
+                }
+
+            });
+
+        });
+
+    }
+
+</script>

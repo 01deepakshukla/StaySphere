@@ -1,0 +1,39 @@
+.starability-result {
+    position: relative;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.starability-result::before {
+    content: "★★★★★";
+    color: #cccccc;
+    position: absolute;
+}
+
+.starability-result::after {
+    content: "★★★★★";
+    color: #fd4;
+    position: absolute;
+    overflow: hidden;
+}
+
+.starability-result[data-rating="1"]::after {
+    width: 20%;
+}
+
+.starability-result[data-rating="2"]::after {
+    width: 40%;
+}
+
+.starability-result[data-rating="3"]::after {
+    width: 60%;
+}
+
+.starability-result[data-rating="4"]::after {
+    width: 80%;
+}
+
+.starability-result[data-rating="5"]::after {
+    width: 100%;
+}
