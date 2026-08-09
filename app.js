@@ -19,7 +19,7 @@ const userRouter = require("./routes/user.js");
 
 // ================= DATABASE =================
 
-const MONGO_URL = process.env.MONGODB_URI;
+const MONGO_URL = process.env.MONGODB_URL;
 
 main()
     .then(() => {
