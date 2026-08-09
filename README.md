@@ -1,18 +1,5 @@
 # StaySphere 
 
-StaySphere is a full-stack accommodation listing web application where users can explore, crea sidfgosjdfiov skjdfshdfigo
-
-## 🚀 Features
-
-- User signup and login
-- Create and manage listings
-- Property image upload
-- Location-based listings
-- Interactive Mapbox maps
-- Reviews
-- Flash messages and error handling
-- MongoDB database
-- Responsive web interface
 
 ## 🛠️ Tech Stack
 
